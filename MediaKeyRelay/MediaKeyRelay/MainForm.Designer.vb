@@ -26,6 +26,7 @@ Partial Class MainForm
         Me.butStop = New System.Windows.Forms.Button()
         Me.butPrev = New System.Windows.Forms.Button()
         Me.butNext = New System.Windows.Forms.Button()
+        Me.inputTextBox = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'butPlayPause
@@ -64,11 +65,19 @@ Partial Class MainForm
         Me.butNext.Text = "Next"
         Me.butNext.UseVisualStyleBackColor = True
         '
+        'inputTextBox
+        '
+        Me.inputTextBox.Location = New System.Drawing.Point(33, 121)
+        Me.inputTextBox.Name = "inputTextBox"
+        Me.inputTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.inputTextBox.TabIndex = 6
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(282, 255)
+        Me.Controls.Add(Me.inputTextBox)
         Me.Controls.Add(Me.butNext)
         Me.Controls.Add(Me.butPrev)
         Me.Controls.Add(Me.butStop)
@@ -76,6 +85,7 @@ Partial Class MainForm
         Me.Name = "MainForm"
         Me.Text = "Media Key Relay"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -83,4 +93,5 @@ Partial Class MainForm
     Friend WithEvents butStop As Button
     Friend WithEvents butPrev As Button
     Friend WithEvents butNext As Button
+    Friend WithEvents inputTextBox As TextBox
 End Class

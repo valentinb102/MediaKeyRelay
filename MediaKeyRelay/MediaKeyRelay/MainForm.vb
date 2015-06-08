@@ -1,4 +1,5 @@
 ﻿Public Class MainForm
+    Inherits Form
 
     Private Sub mediaPlayPause(sender As Object, e As EventArgs) Handles butPlayPause.Click
         KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_PLAY_PAUSE)
@@ -15,4 +16,9 @@
     Private Sub butNext_Click(sender As Object, e As EventArgs) Handles butNext.Click
         KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_NEXT_TRACK)
     End Sub
+
+    Private Sub inputTextBox_TextChanged(sender As Object, e As EventArgs) Handles inputTextBox.KeyPress
+        Dim sum = 2
+    End Sub
+
 End Class
