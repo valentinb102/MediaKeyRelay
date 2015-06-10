@@ -6,7 +6,7 @@
         VK_MEDIA_STOP = &HB2
     End Enum
 
-    Public Enum KeyStates
+    Public Enum KeyMessages
         NUMLOCK_KEYDOWN = &H45
         WM_KEYDOWN = &H1
         WM_KEYUP = &H2
@@ -20,8 +20,24 @@
     ''' </summary>
     ''' <param name="keyCode">use KeyEvent.KeyCodes as a reference</param>
     Public Shared Sub FireKeyCode(keyCode As Byte)
-        keybd_event(keyCode, KeyStates.NUMLOCK_KEYDOWN, KeyStates.WM_KEYDOWN, 0)
-        'Threading.Thread.Sleep(100)
-        'keybd_event(keyCode, KeyStates.NUMLOCK_KEYDOWN, KeyStates.WM_KEYDOWN Or KeyStates.WM_KEYUP, 0)
+        keybd_event(keyCode, KeyMessages.NUMLOCK_KEYDOWN, KeyMessages.WM_KEYDOWN, 0)
+        Threading.Thread.Sleep(100)
+        keybd_event(keyCode, KeyMessages.NUMLOCK_KEYDOWN, KeyMessages.WM_KEYDOWN Or KeyMessages.WM_KEYUP, 0)
+    End Sub
+
+    ''' <summary>
+    ''' fires a keydown event
+    ''' </summary>
+    ''' <param name="keyCode">use KeyEvent.KeyCodes as a reference</param>
+    Public Shared Sub FireKeyCodeDown(keyCode As Byte)
+        keybd_event(keyCode, KeyMessages.NUMLOCK_KEYDOWN, KeyMessages.WM_KEYDOWN, 0)
+    End Sub
+
+    ''' <summary>
+    ''' fires a keyup event
+    ''' </summary>
+    ''' <param name="keyCode">use KeyEvent.KeyCodes as a reference</param>
+    Public Shared Sub FireKeyCodeUp(keyCode As Byte)
+        keybd_event(keyCode, KeyMessages.NUMLOCK_KEYDOWN, KeyMessages.WM_KEYDOWN Or KeyMessages.WM_KEYUP, 0)
     End Sub
 End Class
