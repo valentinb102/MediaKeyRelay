@@ -37,11 +37,8 @@ Public Class Startup
             ' get virtual key code
             Dim vkCode As Integer = Marshal.ReadInt32(lParam)
 
-            ' get process
-            Dim procArray As Process() = Process.GetProcessesByName("mpc-hc64")
-
             ' generate keydown event
-            If [Enum].IsDefined(GetType(KeyEvent.KeyCodes), vkCode) AndAlso procArray.Length Then
+            If [Enum].IsDefined(GetType(KeyEvent.KeyCodes), vkCode) Then
                 KeyEvent.FireKeyCodeDown(vkCode)
             End If
 

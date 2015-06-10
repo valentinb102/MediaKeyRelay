@@ -31,16 +31,16 @@ Partial Class MainForm
         '
         'butPlayPause
         '
-        Me.butPlayPause.Location = New System.Drawing.Point(12, 12)
+        Me.butPlayPause.Location = New System.Drawing.Point(28, 66)
         Me.butPlayPause.Name = "butPlayPause"
-        Me.butPlayPause.Size = New System.Drawing.Size(75, 23)
+        Me.butPlayPause.Size = New System.Drawing.Size(88, 23)
         Me.butPlayPause.TabIndex = 1
         Me.butPlayPause.Text = "Play/Pause"
         Me.butPlayPause.UseVisualStyleBackColor = True
         '
         'butStop
         '
-        Me.butStop.Location = New System.Drawing.Point(93, 12)
+        Me.butStop.Location = New System.Drawing.Point(134, 66)
         Me.butStop.Name = "butStop"
         Me.butStop.Size = New System.Drawing.Size(75, 23)
         Me.butStop.TabIndex = 3
@@ -49,7 +49,7 @@ Partial Class MainForm
         '
         'butPrev
         '
-        Me.butPrev.Location = New System.Drawing.Point(12, 41)
+        Me.butPrev.Location = New System.Drawing.Point(28, 114)
         Me.butPrev.Name = "butPrev"
         Me.butPrev.Size = New System.Drawing.Size(75, 23)
         Me.butPrev.TabIndex = 4
@@ -58,7 +58,7 @@ Partial Class MainForm
         '
         'butNext
         '
-        Me.butNext.Location = New System.Drawing.Point(93, 41)
+        Me.butNext.Location = New System.Drawing.Point(118, 114)
         Me.butNext.Name = "butNext"
         Me.butNext.Size = New System.Drawing.Size(75, 23)
         Me.butNext.TabIndex = 5
@@ -67,7 +67,7 @@ Partial Class MainForm
         '
         'inputTextBox
         '
-        Me.inputTextBox.Location = New System.Drawing.Point(33, 121)
+        Me.inputTextBox.Location = New System.Drawing.Point(109, 204)
         Me.inputTextBox.Name = "inputTextBox"
         Me.inputTextBox.Size = New System.Drawing.Size(100, 22)
         Me.inputTextBox.TabIndex = 6
