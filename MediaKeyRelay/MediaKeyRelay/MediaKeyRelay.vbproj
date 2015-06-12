@@ -68,6 +68,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\KeyboardHook.vb" />
     <Compile Include="Classes\KeyEvent.vb" />
     <Compile Include="Classes\Startup.vb" />
     <Compile Include="MainForm.vb">
