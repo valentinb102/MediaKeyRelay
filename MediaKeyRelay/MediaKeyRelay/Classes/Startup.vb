@@ -1,6 +1,4 @@
-﻿Imports System.Runtime.InteropServices
-
-Public Class Startup
+﻿Public Class Startup
 
     Public Shared Sub Main()
         Dim kbHook As New KeyboardHook

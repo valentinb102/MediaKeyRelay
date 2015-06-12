@@ -1,4 +1,6 @@
-﻿Public Class MainForm
+﻿Imports System.ComponentModel
+
+Public Class MainForm
     Inherits Form
 
     Private Sub mediaPlayPause(sender As Object, e As EventArgs) Handles butPlayPause.Click
@@ -21,4 +23,11 @@
         Dim sum = 2
     End Sub
 
+    Private Sub MainForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+    End Sub
 End Class
