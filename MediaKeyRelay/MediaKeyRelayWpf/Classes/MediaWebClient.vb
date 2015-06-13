@@ -11,15 +11,20 @@ Public Class MediaWebClient
     End Sub
 
     Public Sub SendCommand(command As String)
+        webclient.QueryString.Clear()
         webclient.QueryString.Add(commandString, command)
         webclient.DownloadString(New Uri(address))
     End Sub
 
     Public Function ReceiveStatus()
+        webclient.QueryString.Clear()
+
         Return webclient.DownloadString(New Uri(address))
     End Function
 
     Public Function ReceiveStatus(tempAddress As String)
+        webclient.QueryString.Clear()
+
         Return webclient.DownloadString(New Uri(tempAddress))
     End Function
 
