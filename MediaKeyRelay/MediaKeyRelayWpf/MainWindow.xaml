@@ -14,8 +14,15 @@
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Keyboard Hook" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Button Grid.Column="0" Name="btnKBHook" Click="btnKBHook_Click" Content="Start Hook" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                
                 <Label Grid.Column="1" Content="TESTING" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Button Grid.Column="0" x:Name="butKBHook" Click="butKBHook_Click" Content="Start Hook" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Button Grid.Column="1" Name="btnPausePlay" Content="Pause/Play" Click="btnPausePlay_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                    <Button Grid.Column="1" Name="btnStop" Content="Stop" Click="btnStop_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                    <Button Grid.Column="1" Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                    <Button Grid.Column="1" Name="btnNext" Content="Next" Click="btnNext_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                </StackPanel>
             </Grid>
         </TabItem>
         <TabItem Header="MPC RC" >
