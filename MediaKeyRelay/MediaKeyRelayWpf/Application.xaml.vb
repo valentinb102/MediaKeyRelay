@@ -1,6 +1,7 @@
 ﻿Class Application
     Public Shared kbHook As New KeyboardHook
     Public Shared MPCClient As MediaWebClient
+    Public Shared VLCClient As MediaWebClient
 
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
@@ -21,6 +22,20 @@
                             KeyEvent.FireKeyCodeDown(key)
                         Case ApplicationMap.MPC
                             MPCClient.SendCommand(KeyMap.VKtoMPC(key))
+                        Case ApplicationMap.VLC
+                            ' if pause/play we determine which status is current
+                            If key = KeyMap.VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE Then
+                                Dim status As XDocument = XDocument.Parse(VLCClient.ReceiveStatus)
+                                Dim statusPaused = status...<state>.Value
+
+                                If statusPaused = "paused" Then
+                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Play)
+                                Else
+                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Pause)
+                                End If
+                            Else
+                                VLCClient.SendCommand(KeyMap.VKtoVLC(key))
+                            End If
                     End Select
                 End If
             Next

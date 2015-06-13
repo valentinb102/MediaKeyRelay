@@ -9,30 +9,28 @@
     <TabControl HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
         <TabItem Header="Keyboard Hook">
             <Grid Background="#FFE5E5E5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="Keyboard Hook" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Button Grid.Column="0" Name="btnKBHook" Click="btnKBHook_Click" Content="Stop Hook" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                <Label Grid.Column="1" Content="TESTING" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button Grid.Column="1" Name="btnPausePlay" Content="Pause/Play" Click="btnPausePlay_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
-                    <Button Grid.Column="1" Name="btnStop" Content="Stop" Click="btnStop_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
-                    <Button Grid.Column="1" Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
-                    <Button Grid.Column="1" Name="btnNext" Content="Next" Click="btnNext_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
-                </StackPanel>
-                <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" Grid.Column="1" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC" Content="MPC-HC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" Content="VLC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxFoobar" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="Foobar" Content="Foobar" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top"/>
+                <Label Content="Keyboard Hook" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,10,209,0"/>
+                <Label Content="Key Events" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="428,10,10,0"/>
+                <Button Name="btnPausePlay" Content="Pause/Play" Click="btnPausePlay_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="395,36,46,0"/>
+                <Button Name="btnStop" Content="Stop" Click="btnStop_Click" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="463,36,10,0"/>
+                <Button Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" HorizontalAlignment="Center" VerticalAlignment="top" Margin="443,63,10,0"/>
+                <Button Name="btnNext" Content="Next" Click="btnNext_Click" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="407,63,66,0"/>
+                <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC" Content="MPC-HC" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" Content="VLC" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxFoobar" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="Foobar" Content="Foobar" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label2" Content="Active Interfaces"  Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <Button x:Name="btnKBHook" Click="btnKBHook_Click" Content="Stop Hook"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="219,42,225,229.2"/>
             </Grid>
         </TabItem>
-        <TabItem Header="MPC RC" >
+        <TabItem Header="Web Interfaces" >
             <Grid Background="#FFE5E5E5">
-                <TextBox x:Name="txtMPCStatus" HorizontalAlignment="Left" Height="224" Margin="10,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" MaxLines="10" ScrollViewer.CanContentScroll="True"/>
-                <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="274,0,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="230"/>
+                <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,151,0,0" TextWrapping="NoWrap"  Text="" VerticalAlignment="Top" Width="105"/>
+                <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,123,0,0" TextWrapping="NoWrap"  Text="http://localhost:8080/requests/status.xml" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtVLCPassword" HorizontalAlignment="Left" Height="23" Margin="120,151,0,0" TextWrapping="NoWrap"  Text="12345" VerticalAlignment="Top" Width="100"/>
+                <Label x:Name="label" Content="MPC" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1" Content="VLC" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
             </Grid>
         </TabItem>
     </TabControl>

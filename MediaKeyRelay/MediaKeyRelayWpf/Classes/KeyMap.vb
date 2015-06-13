@@ -40,7 +40,7 @@
     }
 
     Public Shared VKtoVLC As New Dictionary(Of Integer, String) From {
-        {VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE, VLCCommandCodes.Pause},
+        {VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE, VLCCommandCodes.Play},
         {VirtualKeyCodes.VK_MEDIA_NEXT_TRACK, VLCCommandCodes.Next},
         {VirtualKeyCodes.VK_MEDIA_PREV_TRACK, VLCCommandCodes.Previous},
         {VirtualKeyCodes.VK_MEDIA_STOP, VLCCommandCodes.Stop}

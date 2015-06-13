@@ -44,6 +44,12 @@
                 Else
                     Application.MPCClient = Nothing
                 End If
+            Case ApplicationMap.VLC
+                If checkbox.IsChecked Then
+                    Application.VLCClient = New MediaWebClientBasicAuth(txtVLCURL.Text, "command", txtVLCLogin.Text, txtVLCPassword.Text)
+                Else
+                    Application.VLCClient = Nothing
+                End If
         End Select
 
         ' save which app has been actived/deactived

@@ -1,27 +1,26 @@
 ﻿Imports System.Net
 
 Public Class MediaWebClient
-
-    Private webclient As New WebClient With {
-        .UseDefaultCredentials = True
-    }
+    Public webclient As New WebClient
     Private address As String
     Private commandString As String
 
-    Public Sub New(address As String, commandString As String, Optional login As String = Nothing, Optional password As String = Nothing)
+    Public Sub New(address As String, commandString As String)
         Me.address = address
         Me.commandString = commandString
-
-        ' set credentials
-        If Not String.IsNullOrWhiteSpace(login) AndAlso Not String.IsNullOrWhiteSpace(password) Then
-            webclient.Credentials = New NetworkCredential("username", "password")
-        End If
     End Sub
 
     Public Sub SendCommand(command As String)
         webclient.QueryString.Add(commandString, command)
-
         webclient.DownloadString(New Uri(address))
     End Sub
+
+    Public Function ReceiveStatus()
+        Return webclient.DownloadString(New Uri(address))
+    End Function
+
+    Public Function ReceiveStatus(tempAddress As String)
+        Return webclient.DownloadString(New Uri(tempAddress))
+    End Function
 
 End Class
