@@ -1,6 +1,4 @@
-﻿Imports System.Threading.Tasks
-
-Class MainWindow
+﻿Class MainWindow
 
     Private Sub btnKBHook_Click(sender As Object, e As RoutedEventArgs)
         If Application.hook Is Nothing Then
@@ -17,31 +15,38 @@ Class MainWindow
     End Sub
 
     Private Sub btnPausePlay_Click(sender As Object, e As RoutedEventArgs)
-        KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_PLAY_PAUSE)
+        KeyEvent.FireKeyCode(KeyMap.VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE)
     End Sub
 
     Private Sub btnStop_Click(sender As Object, e As RoutedEventArgs)
-        KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_STOP)
+        KeyEvent.FireKeyCode(KeyMap.VirtualKeyCodes.VK_MEDIA_STOP)
     End Sub
 
     Private Sub btnPrevious_Click(sender As Object, e As RoutedEventArgs)
-        KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_PREV_TRACK)
+        KeyEvent.FireKeyCode(KeyMap.VirtualKeyCodes.VK_MEDIA_PREV_TRACK)
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As RoutedEventArgs)
-        KeyEvent.FireKeyCode(KeyEvent.KeyCodes.VK_MEDIA_NEXT_TRACK)
+        KeyEvent.FireKeyCode(KeyMap.VirtualKeyCodes.VK_MEDIA_NEXT_TRACK)
     End Sub
 
-    Private Sub btnMPCStartConn_Click(sender As Object, e As RoutedEventArgs)
-        Application.mpcclient = New MPCWebClient(txtMPCURL.Text)
-        'txtMPCStatus.Text &= "play pause started" & Environment.NewLine
+    ' enable/disable which programs to send commands to
+    Private Sub checkBoxCommands_Checked(sender As Object, e As RoutedEventArgs)
+        Dim checkbox As CheckBox = sender
 
-        'Application.mpcclient.PlayPause().ContinueWith(Sub()
-        '                                                   txtMPCStatus.Text &= "play pause finished" & Environment.NewLine
-        '                                               End Sub, TaskScheduler.FromCurrentSynchronizationContext)
-    End Sub
+        ' enable / disable app specific classes
+        Select Case checkbox.Tag
 
-    Private Sub btnMPCStopConn_Click(sender As Object, e As RoutedEventArgs)
-        Application.mpcclient = Nothing
+            ' enable/disable mpc connection
+            Case ApplicationMap.MPC
+                If checkbox.IsChecked Then
+                    Application.mpcclient = New MPCWebClient(txtMPCURL.Text)
+                Else
+                    Application.mpcclient = Nothing
+                End If
+        End Select
+
+        ' save which app has been actived/deactived
+        ApplicationMap.activeApps(checkbox.Tag) = checkbox.IsChecked
     End Sub
 End Class

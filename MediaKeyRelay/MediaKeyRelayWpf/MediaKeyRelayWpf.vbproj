@@ -77,8 +77,10 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\ApplicationMap.vb" />
     <Compile Include="Classes\KeyboardHook.vb" />
     <Compile Include="Classes\KeyEvent.vb" />
+    <Compile Include="Classes\KeyMap.vb" />
     <Compile Include="Classes\MPCWebClient.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>

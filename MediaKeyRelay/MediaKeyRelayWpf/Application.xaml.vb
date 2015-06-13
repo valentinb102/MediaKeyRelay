@@ -1,14 +1,6 @@
 ﻿Class Application
     Public Shared hook As New KeyboardHook
     Public Shared mpcclient As MPCWebClient
-    Public Shared commandSwitch As Integer
-
-    Public Enum commandEnum
-        KeyEvent = 1
-        MPC = 2
-        VLC = 3
-        Foobar = 4
-    End Enum
 
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
@@ -20,8 +12,18 @@
 
     Public Shared Sub keyReceived(key As Integer)
         ' generate keydown event
-        If [Enum].IsDefined(GetType(KeyEvent.KeyCodes), key) Then
-            KeyEvent.FireKeyCodeDown(key)
+        If [Enum].IsDefined(GetType(KeyMap.VirtualKeyCodes), key) Then
+
+            For Each active As String In ApplicationMap.activeApps.Keys
+                If ApplicationMap.activeApps(active) Then
+                    Select Case active
+                        Case ApplicationMap.KeyEvent
+                            KeyEvent.FireKeyCodeDown(key)
+                        Case ApplicationMap.MPC
+                            mpcclient.SendCommand(KeyMap.VKtoMPC(key))
+                    End Select
+                End If
+            Next
         End If
     End Sub
 End Class

@@ -1,10 +1,4 @@
 ﻿Public Class KeyEvent
-    Public Enum KeyCodes
-        VK_MEDIA_PLAY_PAUSE = &HB3
-        VK_MEDIA_NEXT_TRACK = &HB0
-        VK_MEDIA_PREV_TRACK = &HB1
-        VK_MEDIA_STOP = &HB2
-    End Enum
 
     Public Enum KeyMessages
         NUMLOCK_KEYDOWN = &H45

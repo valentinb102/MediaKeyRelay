@@ -23,16 +23,14 @@
                     <Button Grid.Column="1" Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
                     <Button Grid.Column="1" Name="btnNext" Content="Next" Click="btnNext_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
                 </StackPanel>
-                <CheckBox x:Name="checkBoxKBEvents" Content="Keyboard Events" Grid.Column="1" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxMPC" Content="MPC-HC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxVLC" Content="VLC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxFoobar" Content="Foobar" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" Grid.Column="1" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC" Content="MPC-HC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" Content="VLC" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBoxFoobar" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="Foobar" Content="Foobar" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top"/>
             </Grid>
         </TabItem>
         <TabItem Header="MPC RC" >
             <Grid Background="#FFE5E5E5">
-                <Button x:Name="btnMPCStartConn" Content="Start Connection" Click="btnMPCStartConn_Click" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnMPCStopConn" Content="Start Connection" Click="btnMPCStopConn_Click" HorizontalAlignment="Left" Margin="100,1,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtMPCStatus" HorizontalAlignment="Left" Height="224" Margin="10,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" MaxLines="10" ScrollViewer.CanContentScroll="True"/>
                 <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="274,0,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="230"/>
             </Grid>
