@@ -15,7 +15,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Keyboard Hook" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <Button Grid.Column="0" Name="btnKBHook" Click="btnKBHook_Click" Content="Start Hook" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                
+
                 <Label Grid.Column="1" Content="TESTING" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button Grid.Column="1" Name="btnPausePlay" Content="Pause/Play" Click="btnPausePlay_Click" HorizontalAlignment="Center" VerticalAlignment="top"/>
@@ -27,6 +27,9 @@
         </TabItem>
         <TabItem Header="MPC RC" >
             <Grid Background="#FFE5E5E5">
+                <Button x:Name="btnMPCStartConn" Content="Start Connection" Click="btnMPCStartConn_Click" HorizontalAlignment="Left" Margin="32,30,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtMPCStatus" HorizontalAlignment="Left" Height="224" Margin="10,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484" MaxLines="10" ScrollViewer.CanContentScroll="True"/>
+                <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="208,30,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="230"/>
             </Grid>
         </TabItem>
     </TabControl>
