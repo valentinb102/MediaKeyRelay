@@ -1,14 +1,14 @@
 ﻿Class MainWindow
 
     Private Sub btnKBHook_Click(sender As Object, e As RoutedEventArgs)
-        If Application.hook Is Nothing Then
+        If Application.kbHook Is Nothing Then
             ' startup keyboard hook
-            Application.hook = New KeyboardHook
+            Application.kbHook = New KeyboardHook
 
             btnKBHook.Content = "Stop Hook"
         Else
-            Application.hook.Dispose()
-            Application.hook = Nothing
+            Application.kbHook.Dispose()
+            Application.kbHook = Nothing
 
             btnKBHook.Content = "Start Hook"
         End If
@@ -40,9 +40,9 @@
             ' enable/disable mpc connection
             Case ApplicationMap.MPC
                 If checkbox.IsChecked Then
-                    Application.mpcclient = New MPCWebClient(txtMPCURL.Text)
+                    Application.MPCClient = New MediaWebClient(txtMPCURL.Text, "wm_command")
                 Else
-                    Application.mpcclient = Nothing
+                    Application.MPCClient = Nothing
                 End If
         End Select
 

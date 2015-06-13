@@ -81,7 +81,7 @@
     <Compile Include="Classes\KeyboardHook.vb" />
     <Compile Include="Classes\KeyEvent.vb" />
     <Compile Include="Classes\KeyMap.vb" />
-    <Compile Include="Classes\MPCWebClient.vb" />
+    <Compile Include="Classes\MediaWebClient.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

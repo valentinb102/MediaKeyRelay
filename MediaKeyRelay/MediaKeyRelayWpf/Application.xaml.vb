@@ -1,6 +1,6 @@
 ﻿Class Application
-    Public Shared hook As New KeyboardHook
-    Public Shared mpcclient As MPCWebClient
+    Public Shared kbHook As New KeyboardHook
+    Public Shared MPCClient As MediaWebClient
 
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
@@ -20,7 +20,7 @@
                         Case ApplicationMap.KeyEvent
                             KeyEvent.FireKeyCodeDown(key)
                         Case ApplicationMap.MPC
-                            mpcclient.SendCommand(KeyMap.VKtoMPC(key))
+                            MPCClient.SendCommand(KeyMap.VKtoMPC(key))
                     End Select
                 End If
             Next

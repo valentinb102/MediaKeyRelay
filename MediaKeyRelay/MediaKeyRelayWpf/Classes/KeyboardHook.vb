@@ -1,5 +1,4 @@
 ﻿Imports System.Runtime.InteropServices
-Imports System.Windows.Threading
 
 Public Class KeyboardHook
     Implements IDisposable
@@ -48,9 +47,7 @@ Public Class KeyboardHook
             ' get virtual key code
             Dim vkCode As Integer = Marshal.ReadInt32(lParam)
 
-            Dispatcher.CurrentDispatcher.InvokeAsync(Sub()
-                                                         Application.keyReceived(vkCode)
-                                                     End Sub)
+            Application.keyReceived(vkCode)
         End If
 
         Return CallNextHookEx(_hookID, nCode, wParam, lParam)
