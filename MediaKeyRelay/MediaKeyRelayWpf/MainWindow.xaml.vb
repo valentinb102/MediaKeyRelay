@@ -1,18 +1,16 @@
-﻿Imports System.Net
-Imports System.Threading.Tasks
+﻿Imports System.Threading.Tasks
 
 Class MainWindow
-    Private hook As KeyboardHook
 
     Private Sub btnKBHook_Click(sender As Object, e As RoutedEventArgs)
-        If hook Is Nothing Then
+        If Application.hook Is Nothing Then
             ' startup keyboard hook
-            hook = New KeyboardHook
+            Application.hook = New KeyboardHook
 
             btnKBHook.Content = "Stop Hook"
         Else
-            hook.Dispose()
-            hook = Nothing
+            Application.hook.Dispose()
+            Application.hook = Nothing
 
             btnKBHook.Content = "Start Hook"
         End If
@@ -35,18 +33,15 @@ Class MainWindow
     End Sub
 
     Private Sub btnMPCStartConn_Click(sender As Object, e As RoutedEventArgs)
-        Dim mpcclient As New MPCWebClient(txtMPCURL.Text)
+        Application.mpcclient = New MPCWebClient(txtMPCURL.Text)
+        'txtMPCStatus.Text &= "play pause started" & Environment.NewLine
 
-
-
-        txtMPCStatus.Text &= "play pause started" & Environment.NewLine
-
-        mpcclient.PlayPause().ContinueWith(Sub()
-                                               datacomplete()
-                                           End Sub, TaskScheduler.FromCurrentSynchronizationContext)
+        'Application.mpcclient.PlayPause().ContinueWith(Sub()
+        '                                                   txtMPCStatus.Text &= "play pause finished" & Environment.NewLine
+        '                                               End Sub, TaskScheduler.FromCurrentSynchronizationContext)
     End Sub
 
-    Private Sub datacomplete()
-        txtMPCStatus.Text &= "play pause finished" & Environment.NewLine
+    Private Sub btnMPCStopConn_Click(sender As Object, e As RoutedEventArgs)
+        Application.mpcclient = Nothing
     End Sub
 End Class

@@ -2,7 +2,7 @@
 
 Public Class MPCWebClient
 
-    Public webclient As New WebClient
+    Private webclient As New WebClient
     Private address As String
 
     Public Enum Commands

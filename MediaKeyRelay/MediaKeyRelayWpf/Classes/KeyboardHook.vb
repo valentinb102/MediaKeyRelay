@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Windows.Threading
 
 Public Class KeyboardHook
     Implements IDisposable
@@ -47,10 +48,9 @@ Public Class KeyboardHook
             ' get virtual key code
             Dim vkCode As Integer = Marshal.ReadInt32(lParam)
 
-            ' generate keydown event
-            If [Enum].IsDefined(GetType(KeyEvent.KeyCodes), vkCode) Then
-                KeyEvent.FireKeyCodeDown(vkCode)
-            End If
+            Dispatcher.CurrentDispatcher.InvokeAsync(Sub()
+                                                         Application.keyReceived(vkCode)
+                                                     End Sub)
         End If
 
         Return CallNextHookEx(_hookID, nCode, wParam, lParam)
