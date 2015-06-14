@@ -23,19 +23,7 @@
                         Case ApplicationMap.MPC
                             MPCClient.SendCommand(KeyMap.VKtoMPC(key))
                         Case ApplicationMap.VLC
-                            ' if pause/play we determine which status is current
-                            If key = KeyMap.VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE Then
-                                Dim status As XDocument = XDocument.Parse(VLCClient.ReceiveStatus)
-                                Dim statusPaused = status...<state>.Value
-
-                                If statusPaused = "paused" Then
-                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Play)
-                                Else
-                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Pause)
-                                End If
-                            Else
-                                VLCClient.SendCommand(KeyMap.VKtoVLC(key))
-                            End If
+                            VLCClient.SendCommand(KeyMap.VKtoVLC(key))
                     End Select
                 End If
             Next
