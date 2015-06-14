@@ -9,28 +9,22 @@
     <TabControl HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
         <TabItem Header="Keyboard Hook">
             <Grid Background="#FFE5E5E5">
-                <Label Content="Keyboard Hook" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,10,209,0"/>
-                <Label Content="Key Events" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="428,10,10,0"/>
-                <Button Name="btnPausePlay" Content="Pause/Play" Click="btnPausePlay_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="395,36,46,0"/>
-                <Button Name="btnStop" Content="Stop" Click="btnStop_Click" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="463,36,10,0"/>
-                <Button Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" HorizontalAlignment="Center" VerticalAlignment="top" Margin="443,63,10,0"/>
-                <Button Name="btnNext" Content="Next" Click="btnNext_Click" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="407,63,66,0"/>
                 <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC" Content="MPC-HC" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" Content="VLC" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkBoxFoobar" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="Foobar" Content="Foobar" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label2" Content="Active Interfaces"  Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                <Button x:Name="btnKBHook" Click="btnKBHook_Click" Content="Stop Hook"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="219,42,225,229.2"/>
             </Grid>
         </TabItem>
         <TabItem Header="Web Interfaces" >
             <Grid Background="#FFE5E5E5">
                 <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="210"/>
-                <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,151,0,0" TextWrapping="NoWrap"  Text="" VerticalAlignment="Top" Width="105"/>
-                <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,123,0,0" TextWrapping="NoWrap"  Text="http://localhost:8080/requests/status.xml" VerticalAlignment="Top" Width="210"/>
-                <TextBox x:Name="txtVLCPassword" HorizontalAlignment="Left" Height="23" Margin="120,151,0,0" TextWrapping="NoWrap"  Text="12345" VerticalAlignment="Top" Width="100"/>
+                <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,167,0,0" TextWrapping="NoWrap"  Text="" VerticalAlignment="Top" Width="105"/>
+                <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,118,0,0" TextWrapping="NoWrap"  Text="http://localhost:8080/requests/status.xml" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtVLCPassword" HorizontalAlignment="Left" Height="23" Margin="120,167,0,0" TextWrapping="NoWrap"  Text="12345" VerticalAlignment="Top" Width="100"/>
                 <Label x:Name="label" Content="MPC" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label1" Content="VLC" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label3" Content="Username" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label4" Content="Password" HorizontalAlignment="Left" Margin="118,141,0,0" VerticalAlignment="Top"/>
             </Grid>
         </TabItem>
     </TabControl>
