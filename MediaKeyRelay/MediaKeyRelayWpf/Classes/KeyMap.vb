@@ -5,8 +5,8 @@
         VK_MEDIA_NEXT_TRACK = 176
         VK_MEDIA_PREV_TRACK = 177
         VK_MEDIA_VOL_MUTE = 173
-        VK_MEDIA_VOL_UP = 174
-        VK_MEDIA_VOL_DOWN = 175
+        VK_MEDIA_VOL_UP = 175
+        VK_MEDIA_VOL_DOWN = 174
     End Enum
 
     Public Enum MPCCommandCodes
@@ -27,6 +27,7 @@
         Public Const [Stop] As String = "pl_stop"
         Public Const [Next] As String = "pl_next"
         Public Const Previous As String = "pl_previous"
+        Public Const Volume As String = "volume"
     End Class
 
     Public Shared VKtoMPC As New Dictionary(Of Integer, Integer) From {
@@ -43,6 +44,8 @@
         {VirtualKeyCodes.VK_MEDIA_PLAY_PAUSE, VLCCommandCodes.Pause},
         {VirtualKeyCodes.VK_MEDIA_NEXT_TRACK, VLCCommandCodes.Next},
         {VirtualKeyCodes.VK_MEDIA_PREV_TRACK, VLCCommandCodes.Previous},
-        {VirtualKeyCodes.VK_MEDIA_STOP, VLCCommandCodes.Stop}
+        {VirtualKeyCodes.VK_MEDIA_STOP, VLCCommandCodes.Stop},
+        {VirtualKeyCodes.VK_MEDIA_VOL_UP, VLCCommandCodes.Volume},
+        {VirtualKeyCodes.VK_MEDIA_VOL_DOWN, VLCCommandCodes.Volume}
     }
 End Class

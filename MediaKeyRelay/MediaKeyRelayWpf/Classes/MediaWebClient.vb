@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System.Collections.Specialized
+Imports System.Net
 
 Public Class MediaWebClient
     Public webclient As New WebClient
@@ -10,9 +11,15 @@ Public Class MediaWebClient
         Me.commandString = commandString
     End Sub
 
-    Public Sub SendCommand(command As String)
+    Public Sub SendCommand(command As String, ParamArray extraCommands As Tuple(Of String, String)())
         webclient.QueryString.Clear()
         webclient.QueryString.Add(commandString, command)
+
+        ' add any optional parameters
+        For Each extra In extraCommands
+            webclient.QueryString.Add(extra.Item1, extra.Item2)
+        Next
+
         webclient.DownloadString(New Uri(address))
     End Sub
 
@@ -22,8 +29,13 @@ Public Class MediaWebClient
         Return webclient.DownloadString(New Uri(address))
     End Function
 
-    Public Function ReceiveStatus(tempAddress As String)
+    Public Function ReceiveStatus(tempAddress As String, ParamArray extraCommands As Tuple(Of String, String)())
         webclient.QueryString.Clear()
+
+        ' add any optional parameters
+        For Each extra In extraCommands
+            webclient.QueryString.Add(extra.Item1, extra.Item2)
+        Next
 
         Return webclient.DownloadString(New Uri(tempAddress))
     End Function

@@ -23,7 +23,18 @@
                         Case ApplicationMap.MPC
                             MPCClient.SendCommand(KeyMap.VKtoMPC(key))
                         Case ApplicationMap.VLC
-                            VLCClient.SendCommand(KeyMap.VKtoVLC(key))
+                            ' if volume we have to send another param with the volume amount
+                            If key = KeyMap.VirtualKeyCodes.VK_MEDIA_VOL_DOWN Or
+                                key = KeyMap.VirtualKeyCodes.VK_MEDIA_VOL_UP Then
+
+                                If key = KeyMap.VirtualKeyCodes.VK_MEDIA_VOL_DOWN Then
+                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Volume, Tuple.Create("val", "-5"))
+                                Else
+                                    VLCClient.SendCommand(KeyMap.VLCCommandCodes.Volume, Tuple.Create("val", "+5"))
+                                End If
+                            Else
+                                VLCClient.SendCommand(KeyMap.VKtoVLC(key))
+                            End If
                     End Select
                 End If
             Next
