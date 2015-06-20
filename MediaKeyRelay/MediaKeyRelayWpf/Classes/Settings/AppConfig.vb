@@ -15,7 +15,9 @@ Public Class AppConfig
 
         MainSettings.MPCURL = "http://localhost:13579/command.html"
         MainSettings.VLCURL = "http://localhost:8080/requests/status.xml"
-        MainSettings.VLCLogin = ""
-        MainSettings.VLCPassword = "12345"
+
+        MainSettings.KeyEventEnabled = False
+        MainSettings.MPCEnabled = False
+        MainSettings.VLCEnabled = False
     End Sub
 End Class

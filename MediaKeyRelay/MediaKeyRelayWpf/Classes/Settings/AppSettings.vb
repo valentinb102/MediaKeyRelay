@@ -1,10 +1,16 @@
-﻿<Serializable>
+﻿Imports System.Security
+
+<Serializable>
 Public Class AppSettings
 
     Public Property MPCURL As String
     Public Property VLCURL As String
     Public Property VLCLogin As String
     Public Property VLCPassword As String
+
+    Public Property KeyEventEnabled As Boolean
+    Public Property MPCEnabled As Boolean
+    Public Property VLCEnabled As Boolean
 
     Public Sub New()
     End Sub

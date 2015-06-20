@@ -52,6 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -82,6 +83,7 @@
     <Compile Include="Classes\Keyboard\KeyMap.vb" />
     <Compile Include="Classes\Settings\AppConfig.vb" />
     <Compile Include="Classes\Settings\AppSettings.vb" />
+    <Compile Include="Classes\Settings\DataProtectionExtensions.vb" />
     <Compile Include="Classes\Settings\SettingBindingExtension.vb" />
     <Compile Include="Classes\Settings\WindowSettings.vb" />
     <Compile Include="Classes\WebClient\MediaWebClient.vb" />
