@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediaKeyRelayWpf"
         mc:Ignorable="d"
-        Title="Media Key Relay" Height="350" Width="520" MinWidth="250" MinHeight="250">
+        Title="Media Key Relay" 
+        Top="{local:SettingBinding MainWindow.Top}"
+        Left="{local:SettingBinding MainWindow.Left}"
+        Height="{local:SettingBinding MainWindow.Height}" 
+        Width="{local:SettingBinding MainWindow.Width}" 
+        MinWidth="250" MinHeight="250">
     <TabControl HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
         <TabItem Header="Keyboard Hook">
             <Grid Background="#FFE5E5E5">
@@ -17,10 +22,10 @@
         </TabItem>
         <TabItem Header="Web Interfaces" >
             <Grid Background="#FFE5E5E5">
-                <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="NoWrap"  Text="http://localhost:13579/command.html" VerticalAlignment="Top" Width="210"/>
-                <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,167,0,0" TextWrapping="NoWrap"  Text="" VerticalAlignment="Top" Width="105"/>
-                <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,118,0,0" TextWrapping="NoWrap"  Text="http://localhost:8080/requests/status.xml" VerticalAlignment="Top" Width="210"/>
-                <TextBox x:Name="txtVLCPassword" HorizontalAlignment="Left" Height="23" Margin="120,167,0,0" TextWrapping="NoWrap"  Text="12345" VerticalAlignment="Top" Width="100"/>
+                <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.MPCURL}" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,167,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCLogin}" VerticalAlignment="Top" Width="105"/>
+                <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,118,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCURL}" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtVLCPassword" HorizontalAlignment="Left" Height="23" Margin="120,167,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCPassword}" VerticalAlignment="Top" Width="100"/>
                 <Label x:Name="label" Content="MPC" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label1" Content="VLC" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label3" Content="Username" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top"/>

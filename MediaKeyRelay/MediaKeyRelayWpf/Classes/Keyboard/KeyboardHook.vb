@@ -11,6 +11,7 @@ Public Class KeyboardHook
     Private Shared _proc As LowLevelKeyboardProc = AddressOf HookCallback
     Private Delegate Function LowLevelKeyboardProc(nCode As Integer, wParam As IntPtr, lParam As IntPtr) As IntPtr
 
+    ' marshalled functions
     Private Declare Auto Function SetWindowsHookEx Lib "user32.dll" (idHook As Integer, lpfn As LowLevelKeyboardProc, hMod As IntPtr, dwThreadId As UInteger) As IntPtr
     Private Declare Auto Function UnhookWindowsHookEx Lib "user32.dll" (hhk As IntPtr) As <MarshalAs(UnmanagedType.Bool)> Boolean
     Private Declare Auto Function CallNextHookEx Lib "user32.dll" (hhk As IntPtr, nCode As Integer, wParam As IntPtr, lParam As IntPtr) As IntPtr

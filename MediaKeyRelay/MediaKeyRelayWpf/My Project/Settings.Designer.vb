@@ -52,6 +52,17 @@ Partial Friend NotInheritable Class MySettings
             Return defaultInstance
         End Get
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Public Property Config() As Global.MediaKeyRelayWpf.AppConfig
+        Get
+            Return CType(Me("Config"),Global.MediaKeyRelayWpf.AppConfig)
+        End Get
+        Set
+            Me("Config") = value
+        End Set
+    End Property
 End Class
 
 Namespace My
