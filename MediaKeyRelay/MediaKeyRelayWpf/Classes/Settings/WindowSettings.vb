@@ -6,6 +6,7 @@ Public Class WindowSettings
     Public Property Left As Integer
     Public Property Top As Integer
     Public Property WindowState As WindowState
+    Public Property MinimizeToTray As Boolean
 
     Public Sub New()
     End Sub

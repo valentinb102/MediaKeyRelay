@@ -50,7 +50,14 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\zero.large.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.5\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -81,8 +88,8 @@
     <Compile Include="Classes\Keyboard\KeyboardHook.vb" />
     <Compile Include="Classes\Keyboard\KeyEvent.vb" />
     <Compile Include="Classes\Keyboard\KeyMap.vb" />
-    <Compile Include="Classes\Settings\AppConfig.vb" />
-    <Compile Include="Classes\Settings\AppSettings.vb" />
+    <Compile Include="Classes\Settings\SettingsConfig.vb" />
+    <Compile Include="Classes\Settings\FormSettings.vb" />
     <Compile Include="Classes\Settings\DataProtectionExtensions.vb" />
     <Compile Include="Classes\Settings\SettingBindingExtension.vb" />
     <Compile Include="Classes\Settings\WindowSettings.vb" />
@@ -140,6 +147,10 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\zero.large.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

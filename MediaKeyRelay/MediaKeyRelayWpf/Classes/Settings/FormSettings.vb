@@ -1,5 +1,5 @@
 ﻿<Serializable>
-Public Class AppSettings
+Public Class FormSettings
 
     Public Property MPCURL As String
     Public Property VLCURL As String

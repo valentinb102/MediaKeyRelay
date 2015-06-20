@@ -14,7 +14,7 @@
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
         ' create settings
         If MySettings.Default.Config Is Nothing Then
-            MySettings.Default.Config = New AppConfig
+            MySettings.Default.Config = New SettingsConfig
         End If
     End Sub
 

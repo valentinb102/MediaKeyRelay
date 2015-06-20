@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MediaKeyRelayWpf"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="Media Key Relay" 
         Top="{local:SettingBinding MainWindow.Top}"
@@ -11,11 +12,12 @@
         Height="{local:SettingBinding MainWindow.Height}" 
         Width="{local:SettingBinding MainWindow.Width}" 
         WindowState="{local:SettingBinding MainWindow.WindowState}"
-        MinWidth="250" MinHeight="250">
+        MinWidth="250" MinHeight="250" Icon="Images/zero.large.ico">
     <TabControl x:Name="tabControlMain" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
         
-        <TabItem Header="Web Interfaces" >
+        <TabItem Header="Web Interfaces">
             <Grid Background="#FFE5E5E5">
+                <tb:TaskbarIcon x:Name="taskbarIconMain" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
                 <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,25,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.MPCURL}" VerticalAlignment="Top" Width="210"/>
                 <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,147,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="105"/>
                 <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,96,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCURL}" VerticalAlignment="Top" Width="210"/>

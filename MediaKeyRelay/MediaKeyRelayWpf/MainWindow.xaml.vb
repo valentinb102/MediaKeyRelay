@@ -48,6 +48,20 @@ Class MainWindow
 
         ' grab saved tab SelectedIndex
         tabControlMain.SelectedIndex = MySettings.Default.Config.MainSettings.SelectedTab
+
+        ' grab whether or not we want to minimize to tray
+        ShowInTaskbar = Not MySettings.Default.Config.MainWindow.MinimizeToTray
+
     End Sub
 
+    Private Sub MainWindow_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
+
+        If WindowState = WindowState.Minimized Then
+            'Hide()
+        End If
+    End Sub
+
+    Private Sub taskbarIconMain_TrayMouseDoubleClick(sender As Object, e As DragEventArgs) Handles taskbarIconMain.TrayMouseDoubleClick
+
+    End Sub
 End Class

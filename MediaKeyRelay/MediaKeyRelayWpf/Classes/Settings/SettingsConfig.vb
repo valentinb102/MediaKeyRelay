@@ -1,10 +1,10 @@
 ﻿<Serializable>
-Public Class AppConfig
+Public Class SettingsConfig
     Public Property MainWindow As WindowSettings
-    Public Property MainSettings As AppSettings
+    Public Property MainSettings As FormSettings
 
     Public Sub New()
-        MainSettings = New AppSettings
+        MainSettings = New FormSettings
         MainWindow = New WindowSettings
 
         ' default settings
@@ -12,6 +12,7 @@ Public Class AppConfig
         MainWindow.Left = 200
         MainWindow.Width = 600
         MainWindow.Height = 400
+        MainWindow.MinimizeToTray = False
 
         MainSettings.SelectedTab = 0
 
