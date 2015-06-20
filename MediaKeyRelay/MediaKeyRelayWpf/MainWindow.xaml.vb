@@ -30,12 +30,24 @@ Class MainWindow
         ' save credentials to settings
         MySettings.Default.Config.MainSettings.VLCLogin = txtVLCLogin.Text.Protect
         MySettings.Default.Config.MainSettings.VLCPassword = txtVLCPassword.Password.Protect
+
+        ' save tab SelectedIndex
+        MySettings.Default.Config.MainSettings.SelectedTab = tabControlMain.SelectedIndex
     End Sub
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         ' grab saved credentials
         txtVLCLogin.Text = MySettings.Default.Config.MainSettings.VLCLogin.Unprotect
         txtVLCPassword.Password = MySettings.Default.Config.MainSettings.VLCPassword.Unprotect
+
+        ' reorder tabs since settings are bound one at a time
+        ' certain settings are dependant on others to be available
+        Dim tab As TabItem = tabControlMain.Items(0)
+        tabControlMain.Items.Remove(tab)
+        tabControlMain.Items.Add(tab)
+
+        ' grab saved tab SelectedIndex
+        tabControlMain.SelectedIndex = MySettings.Default.Config.MainSettings.SelectedTab
     End Sub
 
 End Class

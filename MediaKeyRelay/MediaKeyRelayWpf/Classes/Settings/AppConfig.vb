@@ -13,6 +13,8 @@ Public Class AppConfig
         MainWindow.Width = 600
         MainWindow.Height = 400
 
+        MainSettings.SelectedTab = 0
+
         MainSettings.MPCURL = "http://localhost:13579/command.html"
         MainSettings.VLCURL = "http://localhost:8080/requests/status.xml"
 

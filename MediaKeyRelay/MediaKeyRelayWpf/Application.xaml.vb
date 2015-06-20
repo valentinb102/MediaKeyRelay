@@ -29,6 +29,7 @@
 
             For Each active As String In activeApps.Keys
                 If activeApps(active) Then
+
                     Select Case active
                         Case KeyboardEvent
                             KeyEvent.FireKeyCodeDown(key)

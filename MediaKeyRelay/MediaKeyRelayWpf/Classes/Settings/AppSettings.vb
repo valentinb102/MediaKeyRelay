@@ -1,6 +1,4 @@
-﻿Imports System.Security
-
-<Serializable>
+﻿<Serializable>
 Public Class AppSettings
 
     Public Property MPCURL As String
@@ -11,6 +9,8 @@ Public Class AppSettings
     Public Property KeyEventEnabled As Boolean
     Public Property MPCEnabled As Boolean
     Public Property VLCEnabled As Boolean
+
+    Public Property SelectedTab As Integer
 
     Public Sub New()
     End Sub

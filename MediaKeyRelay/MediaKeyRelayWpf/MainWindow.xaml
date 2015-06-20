@@ -10,8 +10,9 @@
         Left="{local:SettingBinding MainWindow.Left}"
         Height="{local:SettingBinding MainWindow.Height}" 
         Width="{local:SettingBinding MainWindow.Width}" 
+        WindowState="{local:SettingBinding MainWindow.WindowState}"
         MinWidth="250" MinHeight="250">
-    <TabControl HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+    <TabControl x:Name="tabControlMain" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
         
         <TabItem Header="Web Interfaces" >
             <Grid Background="#FFE5E5E5">
@@ -26,12 +27,12 @@
             </Grid>
         </TabItem>
 
-        <TabItem Header="Application Hooks" IsSelected="True">
+        <TabItem Header="Application Hooks">
             <Grid Background="#FFE5E5E5">
                 <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" IsChecked="{local:SettingBinding MainSettings.KeyEventEnabled}"/>
                 <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC"  IsChecked="{local:SettingBinding MainSettings.MPCEnabled}" Content="MPC-HC" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" IsChecked="{local:SettingBinding MainSettings.VLCEnabled}" Content="VLC" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="label2" Content="Active Interfaces" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <Label Content="Active Interfaces" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
             </Grid>
         </TabItem>
     </TabControl>
