@@ -18,9 +18,10 @@
   * You can fire media events to supported media players by checking the corresponding app and configuring the appropriate settings.
   * Media players are connected to over their web interfaces. I simply send a POST request in order to bypass the whole signalling issue.
   * So far only MPC-HC and VLC are supported fully.
+  * Can minimize to tray icon.
+  * Can run at startup.
   
 ## TODO
 
-  * Startup minimized
-  * Add app icon
+  * Add Installer
   * Make it look a bit nicer
