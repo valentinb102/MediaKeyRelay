@@ -48,6 +48,11 @@ Class MainWindow
 
         ' grab saved tab SelectedIndex
         tabControlMain.SelectedIndex = MySettings.Default.Config.MainSettings.SelectedTab
+
+        ' start minimized
+        If menuMinToTray.IsChecked Then
+            WindowState = WindowState.Minimized
+        End If
     End Sub
 
     Private Sub MainWindow_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
@@ -64,7 +69,11 @@ Class MainWindow
     End Sub
 
     Private Sub menuRunOnStart_Checked(sender As Object, e As RoutedEventArgs)
-
+        If Not menuRunOnStart.IsChecked AndAlso StartupHelper.ApplicationExistsInCurrentUserStartup Then
+            StartupHelper.RemoveApplicationFromCurrentUserStartup()
+        ElseIf menuRunOnStart.IsChecked AndAlso Not StartupHelper.ApplicationExistsInCurrentUserStartup
+            StartupHelper.AddApplicationToCurrentUserStartup()
+        End If
     End Sub
 
 End Class
