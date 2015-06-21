@@ -13,6 +13,7 @@ Public Class SettingsConfig
         MainWindow.Width = 600
         MainWindow.Height = 400
         MainWindow.MinimizeToTray = False
+        MainWindow.RunAtStart = False
 
         MainSettings.SelectedTab = 0
 

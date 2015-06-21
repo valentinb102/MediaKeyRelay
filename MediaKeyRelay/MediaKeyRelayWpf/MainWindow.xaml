@@ -14,20 +14,20 @@
         WindowState="{local:SettingBinding MainWindow.WindowState}"
         MinWidth="250" MinHeight="270" Icon="Images/zero.large.ico">
     <DockPanel>
+        <DockPanel.Resources>
+            <local:ShowWindowCommand x:Key="ShowWindowCommand" />
+        </DockPanel.Resources>
+        <tb:TaskbarIcon x:Name="taskbarIconMain" DoubleClickCommand="{StaticResource ShowWindowCommand}" DoubleClickCommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
         <Menu Background="PowderBlue" DockPanel.Dock="Top" BorderBrush="Black" BorderThickness=".5">
             <MenuItem Header="Settings">
-                <MenuItem x:Name="menuMinToTray" Header="Minimize to Tray" IsCheckable="True" Checked="menuMinToTray_Checked" Unchecked="menuMinToTray_Checked" />
-                <MenuItem x:Name="menuRunOnStart" Header="Run on Startup" IsCheckable="True" Checked="menuRunOnStart_Checked" Unchecked="menuRunOnStart_Checked" IsEnabled="False" ToolTip="Not yet implemented :(" ToolTipService.ShowOnDisabled="true" />
+                <MenuItem x:Name="menuMinToTray" Header="Minimize to Tray" IsCheckable="True" Checked="menuMinToTray_Checked" Unchecked="menuMinToTray_Checked" IsChecked="{local:SettingBinding MainWindow.MinimizeToTray}" />
+                <MenuItem x:Name="menuRunOnStart" Header="Run on Startup" IsCheckable="True" Checked="menuRunOnStart_Checked" Unchecked="menuRunOnStart_Checked" IsChecked="{local:SettingBinding MainWindow.RunAtStart}" IsEnabled="False" ToolTip="Not yet implemented :(" ToolTipService.ShowOnDisabled="true" />
             </MenuItem>
         </Menu>
 
         <TabControl x:Name="tabControlMain" Margin="0" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
             <TabItem Header="Web Interfaces">
                 <Grid Background="Honeydew">
-                    <Grid.Resources>
-                        <local:ShowWindowCommand x:Key="ShowWindowCommand" />
-                    </Grid.Resources>
-                    <tb:TaskbarIcon x:Name="taskbarIconMain" DoubleClickCommand="{StaticResource ShowWindowCommand}" DoubleClickCommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
                     <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,25,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.MPCURL}" VerticalAlignment="Top" Width="210"/>
                     <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,147,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="105"/>
                     <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,96,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCURL}" VerticalAlignment="Top" Width="210"/>
