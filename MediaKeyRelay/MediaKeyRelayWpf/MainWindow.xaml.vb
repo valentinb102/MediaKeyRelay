@@ -33,6 +33,9 @@ Class MainWindow
 
         ' save tab SelectedIndex
         MySettings.Default.Config.MainSettings.SelectedTab = tabControlMain.SelectedIndex
+
+        ' save minimize to tray
+        MySettings.Default.Config.MainWindow.MinimizeToTray = menuMinToTray.IsChecked
     End Sub
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
@@ -50,8 +53,7 @@ Class MainWindow
         tabControlMain.SelectedIndex = MySettings.Default.Config.MainSettings.SelectedTab
 
         ' grab whether or not we want to minimize to tray
-        ShowInTaskbar = Not MySettings.Default.Config.MainWindow.MinimizeToTray
-
+        MinimizeToTrayToggle(MySettings.Default.Config.MainWindow.MinimizeToTray)
     End Sub
 
     Private Sub MainWindow_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
@@ -61,7 +63,19 @@ Class MainWindow
         End If
     End Sub
 
-    Private Sub taskbarIconMain_TrayMouseDoubleClick(sender As Object, e As DragEventArgs) Handles taskbarIconMain.TrayMouseDoubleClick
+    Private Sub menuMinToTray_Checked(sender As Object, e As RoutedEventArgs)
+        MinimizeToTrayToggle(DirectCast(sender, MenuItem).IsChecked)
+    End Sub
 
+    Private Sub menuRunOnStart_Checked(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MinimizeToTrayToggle(toggle)
+        ' grab whether or not we want to minimize to tray
+        'ShowInTaskbar = Not toggle
+
+        ' enable the taskbar icon
+        'taskbarIconMain.Visibility = Not toggle
     End Sub
 End Class

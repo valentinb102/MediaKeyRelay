@@ -14,17 +14,20 @@
         WindowState="{local:SettingBinding MainWindow.WindowState}"
         MinWidth="250" MinHeight="270" Icon="Images/zero.large.ico">
     <DockPanel>
-        <Menu Background="Gainsboro" DockPanel.Dock="Top" BorderBrush="Black" BorderThickness=".5">
+        <Menu Background="PowderBlue" DockPanel.Dock="Top" BorderBrush="Black" BorderThickness=".5">
             <MenuItem Header="Settings">
-                <MenuItem Header="Minimize to Tray" />
-                <MenuItem Header="Run on Startup" IsEnabled="False" ToolTip="Not yet implemented :(" ToolTipService.ShowOnDisabled="true" />
+                <MenuItem x:Name="menuMinToTray" Header="Minimize to Tray" IsCheckable="True" Checked="menuMinToTray_Checked" Unchecked="menuMinToTray_Checked" />
+                <MenuItem x:Name="menuRunOnStart" Header="Run on Startup" IsCheckable="True" Checked="menuRunOnStart_Checked" Unchecked="menuRunOnStart_Checked" IsEnabled="False" ToolTip="Not yet implemented :(" ToolTipService.ShowOnDisabled="true" />
             </MenuItem>
         </Menu>
 
         <TabControl x:Name="tabControlMain" Margin="0" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
             <TabItem Header="Web Interfaces">
-                <Grid Background="WhiteSmoke">
-                    <tb:TaskbarIcon x:Name="taskbarIconMain" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
+                <Grid Background="Honeydew">
+                    <Grid.Resources>
+                        <local:ShowWindowCommand x:Key="ShowWindowCommand" />
+                    </Grid.Resources>
+                    <tb:TaskbarIcon x:Name="taskbarIconMain" DoubleClickCommand="{StaticResource ShowWindowCommand}" DoubleClickCommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
                     <TextBox x:Name="txtMPCURL" HorizontalAlignment="Left" Height="23" Margin="10,25,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.MPCURL}" VerticalAlignment="Top" Width="210"/>
                     <TextBox x:Name="txtVLCLogin" HorizontalAlignment="Left" Height="23" Margin="10,147,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="105"/>
                     <TextBox x:Name="txtVLCURL" HorizontalAlignment="Left" Height="23" Margin="10,96,0,0" TextWrapping="NoWrap"  Text="{local:SettingBinding MainSettings.VLCURL}" VerticalAlignment="Top" Width="210"/>
@@ -37,7 +40,7 @@
             </TabItem>
 
             <TabItem Header="Application Hooks">
-                <Grid Background="WhiteSmoke">
+                <Grid Background="Honeydew">
                     <CheckBox x:Name="checkBoxKBEvents" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="KeyEvent" Content="Keyboard Events" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" IsChecked="{local:SettingBinding MainSettings.KeyEventEnabled}"/>
                     <CheckBox x:Name="checkBoxMPC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="MPC"  IsChecked="{local:SettingBinding MainSettings.MPCEnabled}" Content="MPC-HC" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="checkBoxVLC" Unchecked="checkBoxCommands_Checked" Checked="checkBoxCommands_Checked" Tag="VLC" IsChecked="{local:SettingBinding MainSettings.VLCEnabled}" Content="VLC" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
