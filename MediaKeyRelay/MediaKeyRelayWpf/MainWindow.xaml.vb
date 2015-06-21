@@ -65,10 +65,16 @@ Class MainWindow
     End Sub
 
     Private Sub menuMinToTray_Checked(sender As Object, e As RoutedEventArgs)
-        taskbarIconMain.Visibility = Not menuMinToTray.IsChecked
+        ' set taskbaricon visibility
+        If menuMinToTray.IsChecked Then
+            taskbarIconMain.Visibility = Visibility.Visible
+        Else
+            taskbarIconMain.Visibility = Visibility.Collapsed
+        End If
     End Sub
 
     Private Sub menuRunOnStart_Checked(sender As Object, e As RoutedEventArgs)
+        ' add / remove from startup
         If Not menuRunOnStart.IsChecked AndAlso StartupHelper.ApplicationExistsInCurrentUserStartup Then
             StartupHelper.RemoveApplicationFromCurrentUserStartup()
         ElseIf menuRunOnStart.IsChecked AndAlso Not StartupHelper.ApplicationExistsInCurrentUserStartup
@@ -76,4 +82,8 @@ Class MainWindow
         End If
     End Sub
 
+    Private Sub taskbarIconMenuExit_Click(sender As Object, e As RoutedEventArgs) Handles taskbarIconMenuExit.Click
+        ' close the app
+        Windows.Application.Current.Shutdown()
+    End Sub
 End Class
