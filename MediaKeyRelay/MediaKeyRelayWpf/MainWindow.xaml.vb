@@ -51,7 +51,6 @@ Class MainWindow
     End Sub
 
     Private Sub MainWindow_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
-
         ' hide taskbar item if we want to minimize to tray
         If WindowState = WindowState.Minimized Then
             ShowInTaskbar = Not menuMinToTray.IsChecked

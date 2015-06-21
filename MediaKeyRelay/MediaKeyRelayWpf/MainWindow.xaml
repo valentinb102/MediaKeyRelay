@@ -17,7 +17,9 @@
         <DockPanel.Resources>
             <local:ShowWindowCommand x:Key="ShowWindowCommand" />
         </DockPanel.Resources>
+        
         <tb:TaskbarIcon x:Name="taskbarIconMain" DoubleClickCommand="{StaticResource ShowWindowCommand}" DoubleClickCommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" IconSource="Images/zero.large.ico" ToolTipText="Media Key Relay" />
+        
         <Menu Background="PowderBlue" DockPanel.Dock="Top" BorderBrush="Black" BorderThickness=".5">
             <MenuItem Header="Settings">
                 <MenuItem x:Name="menuMinToTray" Header="Minimize to Tray" IsCheckable="True" Checked="menuMinToTray_Checked" Unchecked="menuMinToTray_Checked" IsChecked="{local:SettingBinding MainWindow.MinimizeToTray}" />
