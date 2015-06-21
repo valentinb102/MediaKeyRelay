@@ -93,6 +93,7 @@
     <Compile Include="Classes\Settings\DataProtectionExtensions.vb" />
     <Compile Include="Classes\Settings\SettingBindingExtension.vb" />
     <Compile Include="Classes\Settings\WindowSettings.vb" />
+    <Compile Include="Classes\Startup\StartupHelper.vb" />
     <Compile Include="Classes\TaskbarIcon\ShowWindowCommand.vb" />
     <Compile Include="Classes\WebClient\MediaWebClient.vb" />
     <Compile Include="Classes\WebClient\MediaWebClientBasicAuth.vb" />
